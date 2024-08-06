@@ -1,6 +1,0 @@
-@anketa_webapi_app_HostAddress = http://localhost:5139
-
-GET {{anketa_webapi_app_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
