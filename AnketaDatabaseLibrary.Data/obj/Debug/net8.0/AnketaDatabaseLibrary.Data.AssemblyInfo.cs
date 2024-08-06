@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AnketaDatabaseLibrary.Data")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2dfa8fcede2b30a85e7a4f8871212c5927ebbef4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8d43e2a8a143dc26df16c6d63d1f354da6c9b587")]
 [assembly: System.Reflection.AssemblyProductAttribute("AnketaDatabaseLibrary.Data")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AnketaDatabaseLibrary.Data")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
