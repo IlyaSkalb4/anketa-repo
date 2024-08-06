@@ -15,4 +15,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\AnketaDatabaseLibrary.Data\AnketaDatabaseLibrary.Data.csproj" />
+  </ItemGroup>
+
 </Project>

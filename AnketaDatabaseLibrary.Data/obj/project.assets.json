@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Illia\\step_exercise\\anketa-repo\\backend\\AnketaDatabaseLibrary.Data\\AnketaDatabaseLibrary.Data.csproj",
+      "projectUniqueName": "C:\\Illia\\step_exercise\\anketa-repo\\AnketaDatabaseLibrary.Data\\AnketaDatabaseLibrary.Data.csproj",
       "projectName": "AnketaDatabaseLibrary.Data",
-      "projectPath": "C:\\Illia\\step_exercise\\anketa-repo\\backend\\AnketaDatabaseLibrary.Data\\AnketaDatabaseLibrary.Data.csproj",
+      "projectPath": "C:\\Illia\\step_exercise\\anketa-repo\\AnketaDatabaseLibrary.Data\\AnketaDatabaseLibrary.Data.csproj",
       "packagesPath": "C:\\Users\\UserIllia\\.nuget\\packages\\",
-      "outputPath": "C:\\Illia\\step_exercise\\anketa-repo\\backend\\AnketaDatabaseLibrary.Data\\obj\\",
+      "outputPath": "C:\\Illia\\step_exercise\\anketa-repo\\AnketaDatabaseLibrary.Data\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\UserIllia\\AppData\\Roaming\\NuGet\\NuGet.Config",

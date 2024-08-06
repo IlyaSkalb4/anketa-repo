@@ -1,5 +1,4 @@
-﻿
-using AnketaDatabaseLibrary.Data.Models;
+﻿using AnketaDatabaseLibrary.Data.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace AnketaDatabaseLibrary.Data

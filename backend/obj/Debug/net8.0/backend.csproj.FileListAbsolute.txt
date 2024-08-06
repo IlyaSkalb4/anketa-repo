@@ -1,0 +1,9 @@
+C:\Illia\step_exercise\anketa-repo\backend\obj\Debug\net8.0\backend.csproj.AssemblyReference.cache
+C:\Illia\step_exercise\anketa-repo\backend\obj\Debug\net8.0\backend.GeneratedMSBuildEditorConfig.editorconfig
+C:\Illia\step_exercise\anketa-repo\backend\obj\Debug\net8.0\backend.AssemblyInfoInputs.cache
+C:\Illia\step_exercise\anketa-repo\backend\obj\Debug\net8.0\backend.AssemblyInfo.cs
+C:\Illia\step_exercise\anketa-repo\backend\obj\Debug\net8.0\backend.csproj.CoreCompileInputs.cache
+C:\Illia\step_exercise\anketa-repo\backend\obj\Debug\net8.0\backend.MvcApplicationPartsAssemblyInfo.cache
+C:\Illia\step_exercise\anketa-repo\backend\obj\Debug\net8.0\backend.RazorAssemblyInfo.cache
+C:\Illia\step_exercise\anketa-repo\backend\obj\Debug\net8.0\backend.RazorAssemblyInfo.cs
+C:\Illia\step_exercise\anketa-repo\backend\obj\Debug\net8.0\backend.sourcelink.json
