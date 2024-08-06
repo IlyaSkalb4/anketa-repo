@@ -5,7 +5,7 @@ VisualStudioVersion = 17.10.35027.167
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "backend", "backend.csproj", "{18A6F4BE-CCC4-4686-A512-DE10AC031EAD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnketaDatabaseLibrary.Data", "..\..\..\..\Users\UserIllia\OneDrive - ITSTEP\Desktop\copy\AnketaDatabaseLibrary.Data\AnketaDatabaseLibrary.Data.csproj", "{169F48AD-46EC-4F66-AEFA-5547965A2C45}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnketaDatabaseLibrary.Data", "AnketaDatabaseLibrary.Data\AnketaDatabaseLibrary.Data.csproj", "{6E8FFB14-6A74-405D-BB93-A68D49EADED2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{18A6F4BE-CCC4-4686-A512-DE10AC031EAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{18A6F4BE-CCC4-4686-A512-DE10AC031EAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{18A6F4BE-CCC4-4686-A512-DE10AC031EAD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{169F48AD-46EC-4F66-AEFA-5547965A2C45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{169F48AD-46EC-4F66-AEFA-5547965A2C45}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{169F48AD-46EC-4F66-AEFA-5547965A2C45}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{169F48AD-46EC-4F66-AEFA-5547965A2C45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E8FFB14-6A74-405D-BB93-A68D49EADED2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E8FFB14-6A74-405D-BB93-A68D49EADED2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E8FFB14-6A74-405D-BB93-A68D49EADED2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E8FFB14-6A74-405D-BB93-A68D49EADED2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
