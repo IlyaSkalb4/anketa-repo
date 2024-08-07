@@ -137,3 +137,4 @@ C:\Illia\step_exercise\anketa-repo\backend\obj\Debug\net8.0\refint\backend.dll
 C:\Illia\step_exercise\anketa-repo\backend\obj\Debug\net8.0\backend.pdb
 C:\Illia\step_exercise\anketa-repo\backend\obj\Debug\net8.0\backend.genruntimeconfig.cache
 C:\Illia\step_exercise\anketa-repo\backend\obj\Debug\net8.0\ref\backend.dll
+C:\Illia\step_exercise\anketa-repo\backend\bin\Debug\net8.0\libman.json
