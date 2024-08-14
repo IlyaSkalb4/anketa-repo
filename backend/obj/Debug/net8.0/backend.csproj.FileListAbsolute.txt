@@ -119,8 +119,6 @@ C:\Illia\step_exercise\anketa-repo\backend\bin\Debug\net8.0\runtimes\win\lib\net
 C:\Illia\step_exercise\anketa-repo\backend\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
 C:\Illia\step_exercise\anketa-repo\backend\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\Illia\step_exercise\anketa-repo\backend\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
-C:\Illia\step_exercise\anketa-repo\backend\bin\Debug\net8.0\AnketaDatabaseLibrary.Data.dll
-C:\Illia\step_exercise\anketa-repo\backend\bin\Debug\net8.0\AnketaDatabaseLibrary.Data.pdb
 C:\Illia\step_exercise\anketa-repo\backend\obj\Debug\net8.0\staticwebassets.build.json
 C:\Illia\step_exercise\anketa-repo\backend\obj\Debug\net8.0\staticwebassets.development.json
 C:\Illia\step_exercise\anketa-repo\backend\obj\Debug\net8.0\staticwebassets\msbuild.backend.Microsoft.AspNetCore.StaticWebAssets.props
@@ -138,3 +136,9 @@ C:\Illia\step_exercise\anketa-repo\backend\obj\Debug\net8.0\backend.pdb
 C:\Illia\step_exercise\anketa-repo\backend\obj\Debug\net8.0\backend.genruntimeconfig.cache
 C:\Illia\step_exercise\anketa-repo\backend\obj\Debug\net8.0\ref\backend.dll
 C:\Illia\step_exercise\anketa-repo\backend\bin\Debug\net8.0\libman.json
+C:\Illia\step_exercise\anketa-repo\backend\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Illia\step_exercise\anketa-repo\backend\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Illia\step_exercise\anketa-repo\backend\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Illia\step_exercise\anketa-repo\backend\bin\Debug\net8.0\Microsoft.Extensions.Identity.Core.dll
+C:\Illia\step_exercise\anketa-repo\backend\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Illia\step_exercise\anketa-repo\backend\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
