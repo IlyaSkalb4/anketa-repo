@@ -1,0 +1,26 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "popper.js@2.11.8",
+      "destination": "wwwroot/lib/popper.js/"
+    },
+    {
+      "library": "bootswatch@5.3.3",
+      "destination": "wwwroot/lib/bootstrap/css/",
+      "files": [
+        "zephyr/bootstrap.css",
+        "zephyr/bootstrap.min.css",
+        "zephyr/bootstrap.min.css.map",
+        "zephyr/bootstrap.rtl.css",
+        "zephyr/bootstrap.rtl.min.css",
+        "zephyr/bootstrap.rtl.min.css.map"
+      ]
+    },
+    {
+      "library": "Chart.js@4.4.1",
+      "destination": "wwwroot/lib/Chart.js/"
+    }
+  ]
+}

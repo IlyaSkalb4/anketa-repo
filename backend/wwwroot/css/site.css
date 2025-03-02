@@ -1,0 +1,41 @@
+html, body {
+    height: 100%;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.content {
+    flex: 1;
+}
+
+.note-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border: solid 1px blue;
+}
+
+.shadow-q:hover {
+    box-shadow: 0 0 14px rgba(0, 0, 0, 0.1);
+}
+
+.close-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: #555;
+    width: 25px;
+    height: 25px;
+}
+
+.svg-18 {
+    width: 35px;
+    height: 35px;
+}
+
+.close-button:hover {
+    background-color: #eee;
+}

@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html lang="uk">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>@ViewBag.Title</title>
+	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/zephyr/bootstrap.min.css" asp-append-version="true" />
+	<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+	<div class="wrapper">
+		<header class="p-3 bg-light border border-bottom">
+			<div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+				<a class="d-inline-flex link-body text-decoration-none mx-2 fs-5 link-info"
+				   asp-area="" asp-controller="Home" asp-action="Index">Домашня Сторінка</a>
+
+				<ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+					<li><a class="nav-link px-2 link-info" asp-area="" asp-controller="About" asp-action="Index">Про Сайт</a></li>
+					<li><a class="nav-link px-2 link-info" asp-area="" asp-controller="Surveys" asp-action="Index">Опитування</a></li>
+					<li><a class="nav-link px-2 link-info" asp-area="" asp-controller="Profile" asp-action="Index">Профіль</a></li>
+				</ul>
+
+				<form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 d-flex flex-wrap" role="search">
+					<div class="mx-1">
+						<input type="search" class="form-control form-control-dark text-bg-light" placeholder="Назва опитування..." aria-label="Search">
+					</div>
+					<div class="mx-1">
+						<button type="submit" class="btn btn-primary">Знайти</button>
+					</div>
+				</form>
+
+				<div class="text-end">
+					@if (User.Identity != null && User.Identity.IsAuthenticated)
+					{
+						<div class="d-flex align-items-center">
+							<span>@User.Identity.Name</span>
+							<form asp-action="Logout" asp-controller="Account" method="post">
+								<input type="hidden" name="returnUrl" value="@(Context.Request.Path + Context.Request.QueryString.Value)" />
+								<input type="submit" value="Вийти" class="btn btn-success btn-light-blue mx-2" />
+							</form>
+						</div>
+					}
+					else
+					{
+						<a type="button" class="btn btn-outline-light me-2" asp-controller="Account" asp-action="Login">Увійти</a>
+						<a type="button" class="btn btn-light" asp-controller="Account" asp-action="Register">Зареєструватись</a>
+					}
+				</div>
+			</div>
+		</header>
+
+		<main role="main" class="content d-flex justify-content-center align-items-center">
+			@RenderBody()
+		</main>
+
+		<footer class="border-top footer text-muted bg-light">
+			<div class="container">
+				<div class="row">
+					<div class="col text-center">
+						<span>&copy; 2024 - anketapp - </span>
+						<a asp-area="" asp-controller="Home" asp-action="Privacy" class="link-info">Політика Конфіденційності</a>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+	<script src="~/lib/jquery/dist/jquery.min.js" asp-append-version="true"></script>
+	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js" asp-append-version="true"></script>
+	<script src="~/lib/popper.js/umd/popper.js" asp-append-version="true"></script>
+	<script src="~/lib/chart.js/chart.umd.js" asp-append-version="true"></script>
+	<script src="~/js/site.js" asp-append-version="true"></script>
+	@await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

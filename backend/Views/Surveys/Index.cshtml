@@ -1,0 +1,80 @@
+﻿@{
+	ViewBag.Title = "Surveys";
+}
+
+<div class="container mt-5">
+	<div class="row">
+		<div class="col-8 mx-auto">
+			<div class="row">
+				@if (User.Identity != null && User.Identity.IsAuthenticated)
+				{
+					<p class="mb-4 text-center fs-1">Створити Опитування</p>
+					<div class="col-md-4 mb-4">
+						<a asp-controller="Questionnaire" asp-action="Index" style="text-decoration: none;" class="card h-100 note-card">
+							<img src="~/assets/plus_PNG.png" style="max-height: 200px;" 
+							class="card-img-top object-fit-contain" alt="plus-img">
+							<div class="card-body d-flex align-items-end justify-content-center">
+								<h5 class="card-title fw-bold text-center">Власне</h5>
+							</div>
+						</a>
+					</div>
+					<div class="col-md-4 mb-4">
+						<a href="#" style="text-decoration: none;" class="card h-100 note-card">
+							<img src="../images/template_1.png" style="max-height: 200px;" class="card-img-top object-fit-contain" alt="template1-img">
+							<div class="card-body d-flex align-items-end justify-content-center">
+								<h5 class="card-title fw-bold">Контактна Інформація</h5>
+							</div>
+						</a>
+					</div>
+				}
+			</div>
+			<p class="mb-4 text-center fs-1">Усі Опитування</p>
+			<div class="row">
+				<div class="col-md-4 mb-4">
+					<a href="#" style="text-decoration: none;" class="card h-100 note-card">
+						<div class="card-body d-flex flex-column">
+							<h5 class="card-title fw-bold">Назва Опитування</h5>
+							<p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis aperiam fugiat autem facilis numquam omnis eos! Repudiandae quasi ad ea saepe ullam laudantium blanditiis at tempore sequi in. Cupiditate, quae.</p>
+
+						</div>
+						<ul class="list-group list-group-flush">
+							<li class="list-group-item">
+								<strong>Створено:&ensp;</strong><span class="card-text text-muted small mt-auto">December 16, 2024, 14:30</span>
+								<br>
+								<strong>Відредаговано:&ensp;</strong><span class="card-text text-muted small mt-auto">December 29, 2024, 7:45</span>
+							</li>
+						</ul>
+						<div class="card-footer text-body-tertiary">15 днів тому</div>
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-3 mt-5">
+			<form>
+				<div class="input-group mb-3" role="group" aria-label="Basic radio toggle button group">
+					<span class="input-group-text" id="basic-addon1">Sort by</span>
+					<select class="form-select" aria-label="Sort Type">
+						<option selected value="1">Latest</option>
+						<option value="2">Oldest</option>
+						<option value="3">ABC</option>
+					</select>
+				</div>
+				<div class="input-group mb-3">
+					<span class="input-group-text" id="basic-addon1">From</span>
+					<input type="date" class="form-control" placeholder="From date" aria-label="from date"
+						   aria-describedby="basic-addon1">
+				</div>
+				<div class="input-group mb-3">
+					<span class="input-group-text" id="basic-addon1">To</span>
+					<input type="date" class="form-control" placeholder="To date" aria-label="to date"
+						   aria-describedby="basic-addon1">
+				</div>
+				<div class="input-group mb-3">
+					<span class="input-group-text" id="basic-addon1">Title</span>
+					<input type="search" class="form-control" placeholder="Questionnaire Title">
+				</div>
+				<input type="submit" class="btn btn-primary" value="Search">
+			</form>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,488 @@
+﻿@model Questionnaire
+@{
+	ViewBag.Title = "Questionnaire";
+}
+<div class="container">
+	<ul class="nav nav-tabs justify-content-center border-bottom-0" role="tablist">
+		<li class="nav-item me-2" role="presentation">
+			<a class="nav-link active" data-bs-toggle="tab" href="#edit" aria-selected="true"
+			   role="tab">Edit</a>
+		</li>
+		<li class="nav-item me-2" role="presentation">
+			<a class="nav-link" data-bs-toggle="tab" href="#view" aria-selected="false" role="tab"
+			   tabindex="-1">View</a>
+		</li>
+		<li class="nav-item" role="presentation">
+			<a class="nav-link" data-bs-toggle="tab" href="#stats" aria-selected="false" role="tab"
+			   tabindex="-1">Stats</a>
+		</li>
+	</ul>
+
+
+	<div class="row">
+		<div class="col-8 mx-auto">
+			<div class="tab-content border-none p-3">
+				<!-- Edit Tab -->
+				<div class="tab-pane fade show active" id="edit" role="tabpanel">
+					<form method="post" enctype="multipart/form-data">
+						<div asp-validation-summary="ModelOnly" class="alert-warning"></div>
+						<div class="mb-3 p-3 border border-info rounded bg-light shadow-q">
+							<div class="mb-3 w-75">
+								<input class="form-control form-control fs-4" type="text"
+									   placeholder="Назва опитування..." id="titleInput" value="@Model?.Title" required>
+							</div>
+							<div class="d-flex">
+								<textarea id="content1" class="form-control p-3 fs-5" aria-label="Content"
+										  placeholder="Опис опитування..." style="height: 100px" required>@Model?.Description</textarea>
+							</div>
+						</div>
+
+						@if (Model?.Questions != null)
+						{
+							foreach (var question in Model.Questions)
+							{
+								<div class="mb-3 p-3 border border-primary rounded bg-light shadow-q">
+									<div class="mb-3">
+										<input class="form-control fs-5" type="text" placeholder="Питання"
+											   id=@("question" + question.Id) name=@("question" + question.Id)
+											   value="@question.QuestionText">
+									</div>
+
+									@if (question.Answers != null)
+									{
+										switch (question.InputType)
+										{
+											case InputTypeEnum.Checkbox:
+												{
+													foreach (var answer in question.Answers)
+													{
+														<div class="mb-2 align-items-center d-flex">
+															<input id="answer1" type="checkbox" class="form-check-input me-2 fs-5"
+																   disabled>
+															<input type="text" class="form-control w-50"
+																   name=@("answer" + answer.Id)
+																   placeholder="Відповідь" value="@answer.TextValue">
+															<span class="rounded-circle close-button ms-2">
+																<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+																	 fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+																	<path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z">
+																	</path>
+																</svg>
+															</span>
+														</div>
+													}
+													break;
+												}
+											case InputTypeEnum.Radio:
+												{
+													foreach (var answer in question.Answers)
+													{
+														<div class="mb-2 align-items-center d-flex">
+															<input id="answer1" type="radio" class="form-check-input me-2 fs-5"
+																   disabled>
+															<input type="text" class="form-control w-50"
+																   name=@("answer" + answer.Id)
+																   placeholder="Відповідь" value="@answer.TextValue">
+															<span class="rounded-circle close-button ms-2">
+																<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+																	 fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+																	<path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z">
+																	</path>
+																</svg>
+															</span>
+														</div>
+													}
+													break;
+												}
+											case InputTypeEnum.Text:
+												{
+													<div class="mb-2 align-items-center d-flex">
+														<input type="text" class="form-control"
+															   placeholder="Відповідь користувача" disabled>
+													</div>
+													break;
+												}
+											case InputTypeEnum.Number:
+												{
+													<div class="mb-2 align-items-center d-flex">
+														<input type="number" class="form-control w-25"
+															   placeholder="123" disabled>
+													</div>
+													break;
+												}
+											case InputTypeEnum.Date:
+												{
+													<div class="mb-2 align-items-center d-flex">
+														<input type="date" class="form-control w-25" disabled>
+													</div>
+													break;
+												}
+											case InputTypeEnum.Time:
+												{
+													<div class="mb-2 align-items-center d-flex">
+														<input type="time" class="form-control w-25" disabled>
+													</div>
+													break;
+												}
+										}
+									}
+
+									<div class="mt-4 d-flex align-items-center">
+										<button type="button" class="btn btn-secondary">Add Answer</button>
+										<div class="ms-auto d-flex align-items-center">
+											<span class="rounded-circle close-button ms-2 svg-18">
+												<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+													 fill="currentColor" class="bi bi-copy" viewBox="0 0 16 16">
+													<path fill-rule="evenodd"
+														  d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z" />
+												</svg>
+											</span>
+											<span class="rounded-circle close-button svg-18 ms-2">
+												<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+													 fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+													<path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z" />
+													<path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z" />
+												</svg>
+											</span>
+										</div>
+									</div>
+								</div>
+							}
+							<!-- checkbox -->
+							<!-- radio -->
+							<!-- text -->
+							<!-- number -->
+							<!-- date -->
+							<!-- time -->
+						}
+
+						<div class="d-flex justify-content-center flex-wrap">
+							<div class="btn-group mb-3" role="group" aria-label="Basic example">
+								<button type="button" class="btn btn-secondary" disabled>
+									Додати питання:
+								</button>
+								<button type="button" class="btn btn-secondary" data-bs-toggle="tooltip"
+										data-bs-placement="top" title="з декількома обраними">
+									<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+										 fill="currentColor" class="bi bi-ui-checks" viewBox="0 0 16 16">
+										<path d="M7 2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5zM2 1a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2zm0 8a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-2a2 2 0 0 0-2-2zm.854-3.646a.5.5 0 0 1-.708 0l-1-1a.5.5 0 1 1 .708-.708l.646.647 1.646-1.647a.5.5 0 1 1 .708.708zm0 8a.5.5 0 0 1-.708 0l-1-1a.5.5 0 0 1 .708-.708l.646.647 1.646-1.647a.5.5 0 0 1 .708.708zM7 10.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5zm0-5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m0 8a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5" />
+									</svg>
+								</button>
+								<button type="button" class="btn btn-secondary" data-bs-toggle="tooltip"
+										data-bs-placement="top" title="з однією обраною">
+									<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+										 fill="currentColor" class="bi bi-ui-radios" viewBox="0 0 16 16">
+										<path d="M7 2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5zM0 12a3 3 0 1 1 6 0 3 3 0 0 1-6 0m7-1.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5zm0-5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m0 8a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5M3 1a3 3 0 1 0 0 6 3 3 0 0 0 0-6m0 4.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3" />
+									</svg>
+								</button>
+								<button type="button" class="btn btn-secondary" data-bs-toggle="tooltip"
+										data-bs-placement="top" title="з текстовою відповіддю">
+									<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+										 fill="currentColor" class="bi bi-card-text" viewBox="0 0 16 16">
+										<path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2z" />
+										<path d="M3 5.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5M3 8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 8m0 2.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5" />
+									</svg>
+								</button>
+								<button type="button" class="btn btn-secondary" data-bs-toggle="tooltip"
+										data-bs-placement="top" title="з числовою відповіддю">
+									<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+										 fill="currentColor" class="bi bi-123" viewBox="0 0 16 16">
+										<path d="M2.873 11.297V4.142H1.699L0 5.379v1.137l1.64-1.18h.06v5.961zm3.213-5.09v-.063c0-.618.44-1.169 1.196-1.169.676 0 1.174.44 1.174 1.106 0 .624-.42 1.101-.807 1.526L4.99 10.553v.744h4.78v-.99H6.643v-.069L8.41 8.252c.65-.724 1.237-1.332 1.237-2.27C9.646 4.849 8.723 4 7.308 4c-1.573 0-2.36 1.064-2.36 2.15v.057zm6.559 1.883h.786c.823 0 1.374.481 1.379 1.179.01.707-.55 1.216-1.421 1.21-.77-.005-1.326-.419-1.379-.953h-1.095c.042 1.053.938 1.918 2.464 1.918 1.478 0 2.642-.839 2.62-2.144-.02-1.143-.922-1.651-1.551-1.714v-.063c.535-.09 1.347-.66 1.326-1.678-.026-1.053-.933-1.855-2.359-1.845-1.5.005-2.317.88-2.348 1.898h1.116c.032-.498.498-.944 1.206-.944.703 0 1.206.435 1.206 1.07.005.64-.504 1.106-1.2 1.106h-.75z" />
+									</svg>
+								</button>
+								<button type="button" class="btn btn-secondary" data-bs-toggle="tooltip"
+										data-bs-placement="top" title="з датою">
+									<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+										 fill="currentColor" class="bi bi-calendar-event"
+										 viewBox="0 0 16 16">
+										<path d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5z" />
+										<path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z" />
+									</svg>
+								</button>
+								<button type="button" class="btn btn-secondary" data-bs-toggle="tooltip"
+										data-bs-placement="top" title="з часом">
+									<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+										 fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
+										<path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z" />
+										<path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0" />
+									</svg>
+								</button>
+							</div>
+
+							<div class="ms-4 mb-3">
+								<button type="submit" class="btn btn-danger">Видалити Форму</button>
+							</div>
+						</div>
+
+					</form>
+				</div>
+
+				<!-- View Tab -->
+				<div class="tab-pane fade" id="view" role="tabpanel">
+					<div class="mb-3 p-3 border border-info rounded bg-light shadow-q">
+						<div class="mb-3 w-75">
+							<h4>Question</h4>
+						</div>
+						<div class="d-flex">
+							<p>
+								Description Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+								Mollitia, temporibus possimus aliquid odit eius assumenda alias vitae
+								officiis saepe dolorum quidem ratione obcaecati, fugiat veniam dicta
+								doloribus earum id quaerat.
+							</p>
+						</div>
+					</div>
+
+					<form>
+						<!-- checkbox -->
+						<div class="mb-3 p-3 border border-primary rounded bg-light shadow-q">
+							<div class="mb-3">
+								<h4>Question</h4>
+							</div>
+							<div>
+								<div class="mb-2 ">
+									<input id="answer11" name="question1" type="checkbox"
+										   class="form-check-input me-2 fs-5">
+									<label for="answer11" class="form-label w-50">Answer 1</label>
+								</div>
+								<div class="mb-2 ">
+									<input id="answer12" name="question1" type="checkbox"
+										   class="form-check-input me-2 fs-5">
+									<label for="answer12" class="form-label w-50">Answer 2</label>
+								</div>
+								<div class="mb-2 ">
+									<input id="answer13" name="question1" type="checkbox"
+										   class="form-check-input me-2 fs-5">
+									<label for="answer13" class="form-label w-50">Answer 3</label>
+								</div>
+							</div>
+						</div>
+
+						<!-- radio -->
+						<div class="mb-3 p-3 border border-primary rounded bg-light shadow-q">
+							<div class="mb-3">
+								<h4>Question</h4>
+							</div>
+							<div>
+								<div class="mb-2 ">
+									<input id="answer21" name="question2" type="radio"
+										   class="form-check-input me-2 fs-5">
+									<label for="answer21" class="form-label w-50">Answer 1</label>
+								</div>
+								<div class="mb-2 ">
+									<input id="answer22" name="question2" type="radio"
+										   class="form-check-input me-2 fs-5">
+									<label for="answer22" class="form-label w-50">Answer 2</label>
+								</div>
+								<div class="mb-2 ">
+									<input id="answer23" name="question2" type="radio"
+										   class="form-check-input me-2 fs-5">
+									<label for="answer23" class="form-label w-50">Answer 3</label>
+								</div>
+							</div>
+						</div>
+
+						<!-- text -->
+						<div class="mb-3 p-3 border border-primary rounded bg-light shadow-q">
+							<div class="mb-3">
+								<h4>Question</h4>
+							</div>
+							<div class="mb-2 align-items-center d-flex">
+								<textarea class="form-control" name="text-answer"
+										  placeholder="Your answer"></textarea>
+							</div>
+						</div>
+
+						<!-- number -->
+						<div class="mb-3 p-3 border border-primary rounded bg-light shadow-q">
+							<div class="mb-3">
+								<h4>Question</h4>
+							</div>
+							<div class="mb-2 align-items-center d-flex">
+								<input type="number" class="form-control w-25" name="number-answer"
+									   placeholder="Your number">
+							</div>
+						</div>
+
+						<!-- date -->
+						<div class="mb-3 p-3 border border-primary rounded bg-light shadow-q">
+							<div class="mb-3">
+								<h4>Question</h4>
+							</div>
+							<div class="mb-2 align-items-center d-flex">
+								<input type="date" class="form-control w-25" name="date-answer">
+							</div>
+						</div>
+
+						<!-- time -->
+						<div class="mb-3 p-3 border border-primary rounded bg-light shadow-q">
+							<div class="mb-3">
+								<h4>Question</h4>
+							</div>
+							<div class="mb-2 align-items-center d-flex">
+								<input type="time" class="form-control w-25" name="time-answer">
+							</div>
+						</div>
+
+						<button type="submit" class="btn btn-primary mb-5">Відправити</button>
+					</form>
+				</div>
+
+				<!-- Stats Tab -->
+				<div class="tab-pane fade" id="stats" role="tabpanel">
+					<!-- Survey Overview -->
+					<div class="mx-auto justify-content-center d-flex mb-2">
+						<div class="card me-2">
+							<div class="card-body text-center">
+								<h5>Total Responses</h5>
+								<h3>120</h3>
+							</div>
+						</div>
+						<div class="card me-2">
+							<div class="card-body text-center">
+								<h5>Completion Rate</h5>
+								<div class="progress">
+									<div class="progress-bar bg-success" style="width: 85%;">85%</div>
+								</div>
+							</div>
+						</div>
+						<div class="card">
+							<div class="card-body text-center">
+								<h5>Average Time Taken</h5>
+								<h3>5m 30s</h3>
+							</div>
+						</div>
+					</div>
+
+					<!-- Question Statistics -->
+					<div class="row">
+						<div class="accordion col-10 mx-auto" id="surveyStats">
+
+							<!-- Radio Button Question -->
+							<div class="accordion-item">
+								<h2 class="accordion-header">
+									<button class="accordion-button" type="button" data-bs-toggle="collapse"
+											data-bs-target="#q1Stats">
+										What is your favorite color?
+									</button>
+								</h2>
+								<div id="q1Stats" class="accordion-collapse collapse show">
+									<div class="accordion-body">
+										<canvas id="radioChart"></canvas>
+									</div>
+								</div>
+							</div>
+
+							<!-- Checkbox Question -->
+							<div class="accordion-item">
+								<h2 class="accordion-header">
+									<button class="accordion-button collapsed" type="button"
+											data-bs-toggle="collapse" data-bs-target="#q2Stats">
+										Which programming languages do you use?
+									</button>
+								</h2>
+								<div id="q2Stats" class="accordion-collapse collapse">
+									<div class="accordion-body">
+										<canvas id="checkboxChart"></canvas>
+									</div>
+								</div>
+							</div>
+
+							<!-- Number Answer -->
+							<div class="accordion-item">
+								<h2 class="accordion-header">
+									<button class="accordion-button collapsed" type="button"
+											data-bs-toggle="collapse" data-bs-target="#q3Stats">
+										How many books do you read per year?
+									</button>
+								</h2>
+								<div id="q3Stats" class="accordion-collapse collapse">
+									<div class="accordion-body">
+										<canvas id="numberChart"></canvas>
+									</div>
+								</div>
+							</div>
+
+							<!-- Date Answer -->
+							<div class="accordion-item">
+								<h2 class="accordion-header">
+									<button class="accordion-button collapsed" type="button"
+											data-bs-toggle="collapse" data-bs-target="#q4Stats">
+										When did you last attend a conference?
+									</button>
+								</h2>
+								<div id="q4Stats" class="accordion-collapse collapse">
+									<div class="accordion-body">
+										<canvas id="dateChart"></canvas>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+		document.addEventListener("DOMContentLoaded", function () {
+	// Radio Button Question Chart
+	new Chart(document.getElementById("radioChart"), {
+		type: 'bar',
+		data: {
+			labels: ["Red", "Blue", "Green"],
+			datasets: [{
+				label: "Responses",
+				data: [40, 35, 25],
+				backgroundColor: ["#FF5733", "#337BFF", "#33FF57"]
+			}]
+		}
+	});
+
+	// Checkbox Question Chart
+	new Chart(document.getElementById("checkboxChart"), {
+		type: 'bar',
+		data: {
+			labels: ["Python", "C#", "JavaScript"],
+			datasets: [{
+				label: "Responses",
+				data: [60, 50, 45],
+				backgroundColor: ["#FF5733", "#337BFF", "#33FF57"]
+			}]
+		}
+	});
+
+	// Number Answer (Books Read)
+	new Chart(document.getElementById("numberChart"), {
+		type: 'line',
+		data: {
+			labels: ["Min", "Avg", "Max"],
+			datasets: [{
+				label: "Books Read",
+				data: [1, 12, 50],
+				backgroundColor: "#33FF57",
+				borderColor: "#33FF57",
+				fill: false
+			}]
+		}
+	});
+
+	// Date Answer
+	new Chart(document.getElementById("dateChart"), {
+		type: 'line',
+		data: {
+			labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+			datasets: [{
+				label: "Responses per Month",
+				data: [10, 15, 30, 20, 25, 10],
+				backgroundColor: "#337BFF",
+				borderColor: "#337BFF",
+				fill: false
+			}]
+		}
+	});
+	});
+
+</script>
