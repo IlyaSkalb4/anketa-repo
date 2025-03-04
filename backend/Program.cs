@@ -1,5 +1,6 @@
 using AnketaDatabaseLibrary.Data;
 using backend.Data.Models;
+using backend.Services;
 using backend.Services.Implementation;
 using Microsoft.AspNetCore.Authentication.Google;
 using Microsoft.AspNetCore.Identity;
@@ -30,6 +31,7 @@ builder.Services.ConfigureApplicationCookie(options =>
 });
 
 builder.Services.AddTransient<IEmailSender, EmailSender>();
+builder.Services.AddScoped<IQuestionnaireService, QuestionnaireService>();
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddAuthentication()

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Illia\\step_exercise\\anketa-repo\\backend\\backend.csproj": {}
+    "C:\\Illia\\step_exercise\\anketa-repo-cursor-clone\\anketa-repo\\backend\\backend.csproj": {}
   },
   "projects": {
-    "C:\\Illia\\step_exercise\\anketa-repo\\backend\\backend.csproj": {
+    "C:\\Illia\\step_exercise\\anketa-repo-cursor-clone\\anketa-repo\\backend\\backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Illia\\step_exercise\\anketa-repo\\backend\\backend.csproj",
+        "projectUniqueName": "C:\\Illia\\step_exercise\\anketa-repo-cursor-clone\\anketa-repo\\backend\\backend.csproj",
         "projectName": "backend",
-        "projectPath": "C:\\Illia\\step_exercise\\anketa-repo\\backend\\backend.csproj",
+        "projectPath": "C:\\Illia\\step_exercise\\anketa-repo-cursor-clone\\anketa-repo\\backend\\backend.csproj",
         "packagesPath": "C:\\Users\\UserIllia\\.nuget\\packages\\",
-        "outputPath": "C:\\Illia\\step_exercise\\anketa-repo\\backend\\obj\\",
+        "outputPath": "C:\\Illia\\step_exercise\\anketa-repo-cursor-clone\\anketa-repo\\backend\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -60,21 +60,21 @@
             },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[8.0.7, )"
+              "version": "[8.0.12, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[8.0.7, )"
+              "version": "[8.0.12, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[8.0.7, )"
+              "version": "[8.0.12, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[8.0.7, )"
+              "version": "[8.0.12, )"
             }
           },
           "imports": [

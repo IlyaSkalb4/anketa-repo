@@ -84,6 +84,7 @@ namespace AnketaDatabaseLibrary.Data
 				entity.Property(qnr => qnr.Description).HasColumnName("Description");
 				entity.Property(qnr => qnr.UserId).HasColumnName("UserId");
 				entity.Property(qnr => qnr.DateOfCreation).HasColumnName("DateOfCreation");
+				entity.Property(qnr => qnr.LastEditDate).HasColumnName("LastEditDate");
 
 				entity.HasOne(qnr => qnr.User)
 					  .WithMany(u => u.Questionnaires)

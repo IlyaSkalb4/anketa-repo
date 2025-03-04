@@ -14,6 +14,8 @@
 
 		public DateTime DateOfCreation { get; set; }
 
+		public DateTime LastEditDate { get; set; }
+
 		public ApplicationUser User { get; set; } = default!;
 
 		public ICollection<Question> Questions { get; set; } = default!;
